@@ -8,8 +8,15 @@ pipeline {
         }
         stage('NORMAL Stage') {
             steps {
-                sh '''#!/bin/bash
-                      df
+                sh '''
+                      az aks create --resource-group 1-23e1741a-playground-sandbox --name MyManagedCluster
+                '''
+            }
+        }
+        stage('NORMAL Stage') {
+            steps {
+                sh '''
+                      kubectl get nodes -o wide
                 '''
             }
         }
