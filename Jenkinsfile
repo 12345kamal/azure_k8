@@ -16,6 +16,7 @@ pipeline {
         stage('check cluster') {
             steps {
                 sh '''#!/bin/bash
+                        /usr/local/bin/az aks get-credentials --name MyManagedCluster --overwrite-existing --resource-group 1-23e1741a-playground-sandbox
                        /usr/local/bin/kubectl get nodes -o wide
                 '''
             }
